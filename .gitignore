@@ -1,0 +1,5 @@
+
+*.pyc
+/repository/__pycache__
+/routers/__pycache__
+/services/__pycache__
