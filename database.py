@@ -13,6 +13,6 @@ supabase: Client = create_client(url, key)
 
 
 # Check connection -> Should return the posts
-response = supabase.table("Post").select("*").limit(1).execute()
+response = supabase.table("post").select("*").limit(1).execute()
 print("Supabase Connected, query test:", response)
 

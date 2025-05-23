@@ -4,7 +4,7 @@ from routers import post_router
 app = FastAPI()
 
 # Include routes here:
-app.include_router(post_router.router, prefix="", tags=["Posts"])
+app.include_router(post_router.router, prefix="", tags=["posts"])
 
 
 
