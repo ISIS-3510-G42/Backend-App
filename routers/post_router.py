@@ -26,8 +26,6 @@ def create_post(post: PostCreate):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-
-
 @router.get("/clothing", response_model=List[PostResponse])
 def get_all_clothing():
     try:
@@ -35,9 +33,6 @@ def get_all_clothing():
         return all_posts
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
-    
-
-
 
 @router.get("/clothing/category/{category_name}", response_model=List[PostResponse])
 def get_clothing_by_category(category_name: str):
