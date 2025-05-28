@@ -7,7 +7,7 @@ router = APIRouter()
 
 "Endpoints de la API de usuarios"
 
-@router.user("/create-user/", response_model=UserResponse)
+@router.post("/create-user/", response_model=UserResponse)
 def create_user(user: UserCreate):
     try:
         new_user = register_user(user)
@@ -16,14 +16,14 @@ def create_user(user: UserCreate):
         raise HTTPException(status_code=400, detail=str(e))
 
 @router.get("/users/{user_id}", response_model=UserResponse)
-def get_user_by_id(user_id: int):
+def get_user_by_id_route(user_id: int):
     user = get_user_by_id(user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found.")
     return user
 
 @router.get("/emails/{user_email}", response_model=UserResponse)
-def get_user_by_email(user_email: int):
+def get_user_by_email_route(user_email: str):
     user = get_user_by_email(user_email)
     if not user:
         raise HTTPException(status_code=404, detail="User not found.")
