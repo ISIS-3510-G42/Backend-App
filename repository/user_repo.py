@@ -15,8 +15,3 @@ def create_user(user: UserCreate):
 def get_user_email(user_email: str):
     response = supabase.table("user").select("*").eq("email", user_email).execute()
     return response.data[0] if response.data else None
-
-# Obtener usuario por ID
-def get_user_id(user_id: int):
-    response = supabase.table("user").select("*").eq("id", user_id).execute()
-    return response.data[0] if response.data else None
