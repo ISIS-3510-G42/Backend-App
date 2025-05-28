@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 #Clase de datos para definir un usuario
 class UserCreate(BaseModel):
@@ -17,3 +18,7 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+class UserUpdateProducts(BaseModel):
+    postedProducts: Optional[str] = None
+    boughtProducts: Optional[str] = None
