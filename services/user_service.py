@@ -1,7 +1,7 @@
 from repository.user_repo import create_user, get_user_email, get_user_id
 from schemas.user import UserCreate
 
-#Clase de funciones de servicio intermedio de los usuarios
+# Funciones de servicio
 def register_user(user: UserCreate):
     return create_user(user)
 

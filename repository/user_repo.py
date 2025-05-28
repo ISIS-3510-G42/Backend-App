@@ -1,7 +1,7 @@
 from database import supabase
 from schemas.user import UserCreate
 
-#Crear los usuarios en la base de datos de supabase
+# Crear usuario en Supabase
 def create_user(user: UserCreate):
     response = supabase.table("user").insert({
         "name": user.name,
@@ -11,12 +11,12 @@ def create_user(user: UserCreate):
     }).execute()
     return response.data[0]
 
-#Retornar un usuario por email
+# Obtener usuario por email
 def get_user_email(user_email: str):
     response = supabase.table("user").select("*").eq("email", user_email).execute()
     return response.data[0] if response.data else None
 
-#Retornar un usuario por id
+# Obtener usuario por ID
 def get_user_id(user_id: int):
     response = supabase.table("user").select("*").eq("id", user_id).execute()
     return response.data[0] if response.data else None

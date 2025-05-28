@@ -1,11 +1,8 @@
-from typing import List
 from fastapi import APIRouter, HTTPException
 from services.user_service import register_user, get_user_by_email, get_user_by_id
 from schemas.user import UserCreate, UserResponse
 
 router = APIRouter()
-
-"Endpoints de la API de usuarios"
 
 @router.post("/create-user/", response_model=UserResponse)
 def create_user(user: UserCreate):
