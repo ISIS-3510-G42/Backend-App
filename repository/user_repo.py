@@ -16,7 +16,7 @@ def get_users():
     return response.data
 
 # Obtener usuario por email
-def get_user_by_emai(user_email: str):
+def get_user_email(user_email: str):
     response = supabase.table("users").select("*").eq("email", user_email).execute()
     return response.data[0] if response.data else None
 # Obtener usuario por ID
