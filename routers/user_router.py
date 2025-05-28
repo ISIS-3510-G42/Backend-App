@@ -1,8 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from services.user_service import register_user, get_user_by_email, get_user_by_id, get_all_users
+from services.user_service import register_user, get_user_by_email, get_user_by_id, get_all_users, update_user_products
 from schemas.user import UserCreate, UserResponse
 from typing import List
-
 
 router = APIRouter()
 
@@ -35,3 +34,14 @@ def get_user_by_id_route(user_id: int):
     if not user:
         raise HTTPException(status_code=404, detail="User not found.")
     return user
+
+# Nueva ruta para actualizar productos publicados y comprados de un usuario
+@router.put("/users/update-products/{user_email}", response_model=UserResponse)
+def update_user_products_route(user_email: str, postedProducts: List[int], boughtProducts: List[int]):
+    try:
+        updated_user = update_user_products(user_email, postedProducts, boughtProducts)
+        if not updated_user:
+            raise HTTPException(status_code=404, detail="User not found.")
+        return updated_user
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
