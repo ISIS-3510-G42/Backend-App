@@ -1,4 +1,4 @@
-from repository.user_repo import create_user, get_user_by_email, get_user_id, get_users, update_user
+from repository.user_repo import create_user, get_user_by_emai, get_user_id, get_users, update_user
 from schemas.user import UserCreate
 
 # Funciones de servicio
