@@ -14,8 +14,8 @@ def create_user(user: UserCreate):
 # Actualizar productos publicados y comprados de un usuario
 def update_user(user_email: str, postedProducts: list, boughtProducts: list):
     response = supabase.table("users").update({
-        "postedProducts": postedProducts,
-        "boughtProducts": boughtProducts
+        "postedProducts": str(postedProducts),  # Asegúrate de convertir en cadena
+        "boughtProducts": str(boughtProducts)   # Asegúrate de convertir en cadena
     }).eq("email", user_email).execute()
     return response.data[0] if response.data else None
 
