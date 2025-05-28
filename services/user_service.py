@@ -9,7 +9,7 @@ def get_all_users():
     return get_users()
 
 def get_user_by_email(email):
-    return get_user_by_email(email)
+    return get_user_by_emai(email)
 
 def get_user_by_id(user_id):
     return get_user_id(user_id)
